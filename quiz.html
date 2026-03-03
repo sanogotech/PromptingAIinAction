@@ -2457,34 +2457,38 @@
             resultsModal.hide();
         }
 
-        function displayQuestion(index) {
-            explanationBoxEl.classList.add('d-none');
-            tipBoxEl.classList.add('d-none');
-            
-            const question = questions[index];
-            questionTextEl.textContent = question.question;
-            
-            thematicBadgeEl.textContent = question.thematic;
-            thematicBadgeEl.className = 'thematic-badge';
-            thematicBadgeEl.classList.add(badgeClasses[question.thematic] || 'badge-fundamental');
-            
-            optionsContainerEl.innerHTML = '';
-            
-            question.options.forEach(optionText => {
-                const button = document.createElement('button');
-                button.textContent = optionText;
-                button.classList.add('btn', 'option-btn');
-                button.onclick = () => selectAnswer(button, optionText, index);
-                optionsContainerEl.appendChild(button);
-            });
-            
-            updateNavigation();
-            updateProgressBar();
-            
-            if (userAnswers[index] !== null) {
-                showAnswerFeedback(index);
-            }
-        }
+
+		function displayQuestion(index) {
+			explanationBoxEl.classList.add('d-none');
+			tipBoxEl.classList.add('d-none');
+			
+			const question = questions[index];
+			questionTextEl.textContent = question.question;
+			
+			thematicBadgeEl.textContent = question.thematic;
+			thematicBadgeEl.className = 'thematic-badge';
+			thematicBadgeEl.classList.add(badgeClasses[question.thematic] || 'badge-fundamental');
+			
+			optionsContainerEl.innerHTML = '';
+			
+			// Mélanger les options pour que la bonne réponse ne soit pas toujours en première position
+			const shuffledOptions = shuffleArray([...question.options]);
+			
+			shuffledOptions.forEach(optionText => {
+				const button = document.createElement('button');
+				button.textContent = optionText;
+				button.classList.add('btn', 'option-btn');
+				button.onclick = () => selectAnswer(button, optionText, index);
+				optionsContainerEl.appendChild(button);
+			});
+			
+			updateNavigation();
+			updateProgressBar();
+			
+			if (userAnswers[index] !== null) {
+				showAnswerFeedback(index);
+			}
+		}
         
         function selectAnswer(button, selectedAnswer, questionIndex) {
             if (userAnswers[questionIndex] !== null) return;
