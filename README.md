@@ -1,2 +1,1 @@
-# PrompTingInAction
-PrompTing In Action Pour Tous
+# PrompTing  AI In Action Pour Tous
