@@ -1,5 +1,10 @@
 # **Masterclass : Pourquoi 90 % des projets agricoles échouent en Afrique** 🌱
 
+- https://www.youtube.com/live/KP_edhM8A4I?si=gD4L1QCV1D_WEtoQ
+- Pourquoi 90 % des projets agricoles échouent ?
+- Agriculteurs Modernes : 361K subscribers
+
+
 ### **Présentation des intervenants**
 
 * **Tagbé Valeransou** – Ingénieur agronome et entrepreneur, passionné par l’agriculture et le développement en Afrique.
